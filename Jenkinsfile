@@ -30,14 +30,14 @@ pipeline {
       }
     }
 
-    stage('Docker Push') {
-    	agent any
-      steps {
-      	withCredentials([gitUsernamePassword(credentialsId: 'dockerhub', gitToolName: 'Default')]) {
-        	sh "docker login -u 'ddragueur' -p 'DevOps2024'"
-          sh 'docker push ddragueur/spring-petclinic:latest'
-        }
-      }
-    }
+    // stage('Docker Push') {
+    // 	agent any
+    //   steps {
+    //   	withCredentials([gitUsernamePassword(credentialsId: 'dockerhub', gitToolName: 'Default')]) {
+    //     	sh "docker login -u 'ddragueur' -p 'DevOps2024'"
+    //       sh 'docker push ddragueur/spring-petclinic:latest'
+    //     }
+    //   }
+    // }
   }
 }
