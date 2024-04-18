@@ -3,12 +3,12 @@ pipeline {
   agent any
   stages {
     
-    stage('Verification') {
-       steps {
-                sh 'whoami'
-                sh 'pwd'
-        }
-    }
+    // stage('Verification') {
+    //    steps {
+    //             sh 'whoami'
+    //             sh 'pwd'
+    //     }
+    // }
 
     stage('Maven Install') {
     	    agent {
@@ -33,9 +33,9 @@ pipeline {
     stage('Docker Push') {
     	agent any
       steps {
-      	withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'BtFormation',    usernameVariable: 'btformation')]) {
-        	sh "docker login -u 'btformation' -p 'BtFormation'"
-          sh 'docker push btformation/spring-petclinic:latest'
+      	withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DevOps2024',    usernameVariable: 'ddragueur')]) {
+        	sh "docker login -u 'ddragueur' -p 'DevOps2024'"
+          sh 'docker push ddragueur/spring-petclinic:latest'
         }
       }
     }
